@@ -1,0 +1,21 @@
+:root {
+    --bg: #0b0e12;
+    --panel: #0f1720;
+    --accent: #7c5cff;
+    --text: #e6eef6;
+    --muted: #9aa4b2;
+    --radius: 16px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.7);
+    --font: 'Inter', Arial, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
