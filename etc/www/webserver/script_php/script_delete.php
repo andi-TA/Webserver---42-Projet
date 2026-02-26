@@ -27,21 +27,25 @@
 
     function deleteDone( $dir = __DIR__ ): bool
     {
-        $pos = strpos($dir, "webserv");
-        $val =  substr($dir, 0, $pos + strlen("webserv"));
-        $fil =  $val . DIRECTORY_SEPARATOR . $_POST["fileDelete"];
+        if (isset($_SERVER["DEPENDANCE"]))
+        {
+            $pos = strpos($dir, "webserv");
+            $val =  substr($dir, 0, $pos + strlen("webserv"));
+            $fil =  $val . $_SERVER["DEPENDANCE"] . DIRECTORY_SEPARATOR . $_POST["fileDelete"];
 
-        if (is_file($fil))
-        {
-            if (!file_exists($fil) || !is_writable($fil) || !is_readable($fil))
-                return (false);
-            return(unlink($fil));
+            if (is_file($fil))
+            {
+                if (!file_exists($fil) || !is_writable($fil) || !is_readable($fil))
+                    return (false);
+                return(unlink($fil));
+            }
+            else if (is_dir($fil))
+            {
+                if (!is_writable(dirname($fil)))
+                    return (false);
+                return (deleteDir($fil));
+            }
         }
-        else if (is_dir($fil))
-        {
-            if (!is_writable(dirname($fil)))
-                return (false);
-            return (deleteDir($fil));
-        }
+        return (false);
     }
 ?>

@@ -19,7 +19,6 @@ class ClientFD;
 
 class ServerFD : public AFD {
 	public:
-		using AFD::getErrorIndex;
 		ServerFD( void );
 		ServerFD( const ServerFD & cpy );
 		~ServerFD( void );

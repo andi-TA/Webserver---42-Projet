@@ -35,7 +35,7 @@ class FileFD : public AFD {
 		//	attributs
 		std::string	_content;
 		std::string	_tmp;
-		// int			_fd_type;
+		int			_fd_type;
 		bool		_should_close;
 
 };
