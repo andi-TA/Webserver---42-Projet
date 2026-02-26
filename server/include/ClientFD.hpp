@@ -73,7 +73,6 @@ class ClientFD : public AFD {
 		
 		time_t					_last_time_activity;
 		int						_server_fd;
-		int						_fd_number;
 
 		short					_action;
 		size_t					_content_length;

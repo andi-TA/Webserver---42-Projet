@@ -80,20 +80,20 @@ bool	Response::sendResponseWithCgi( IPollFD& poll_event )
 
 			this->_envp = buildEnvp();
 
-			WebServer::closeFD(this->_fd_files[0]->getFD());
-			WebServer::closeFD(this->_fd_files[3]->getFD());
+            WebServer::closeFD(this->_fd_files[0]->getFD());
+            WebServer::closeFD(this->_fd_files[3]->getFD());
 
-			dup2(this->_fd_files[1]->getFD(), STDOUT_FILENO);
-			dup2(this->_fd_files[2]->getFD(), STDIN_FILENO);
+            dup2(this->_fd_files[1]->getFD(), STDOUT_FILENO);
+            dup2(this->_fd_files[2]->getFD(), STDIN_FILENO);
 
-			char	*argv[] = {
-				const_cast<char *>(this->_cgi.c_str()),
-				const_cast<char *>(ftGetScriptFilename(this->_path).c_str()),
-				NULL
-			};
-			execve(this->_cgi.c_str(), argv, this->_envp);
-			ftFreeTab(&(this->_envp));
-			exit(EXIT_FAILURE);
+            std::string scriptFilename = ftGetScriptFilename(this->_path);
+            char	*argv[] = {
+                const_cast<char *>(scriptFilename.c_str()),
+                NULL
+            };
+            execve(this->_cgi.c_str(), argv, this->_envp);
+            ftFreeTab(&(this->_envp));
+            exit(EXIT_FAILURE);
 		}
 		else 
 			this->_cgi_step_stat = CGI_STEP_TWO;
