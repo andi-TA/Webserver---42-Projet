@@ -18,7 +18,7 @@ SRC			=	./src/Request.cpp ./src/setRequest.cpp ./src/uRequest.cpp \
 				./src/showRequest.cpp ./src/eRequest.cpp ./src/postRequest.cpp \
 				./src/SessionManager.cpp
 
-CXX			=	c++ -std=c++98 -Wall -Wextra -Werror
+CXX			=	c++ 
 
 DIR			=	obj/
 

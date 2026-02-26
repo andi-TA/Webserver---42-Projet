@@ -17,7 +17,7 @@ MAIN		=	./src/main.cpp
 SRC			=	./src/Response.cpp \
 				./src/utils.cpp
 
-CXX			=	c++ -std=c++98 -Wall -Wextra -Werror
+CXX			=	c++ 
 
 DIR			=	obj/
 

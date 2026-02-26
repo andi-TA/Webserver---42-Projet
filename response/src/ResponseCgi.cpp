@@ -85,10 +85,11 @@ bool	Response::sendResponseWithCgi( IPollFD& poll_event )
 
 			dup2(this->_fd_files[1]->getFD(), STDOUT_FILENO);
 			dup2(this->_fd_files[2]->getFD(), STDIN_FILENO);
+			std::string filename = ftGetScriptFilename(this->_path);
 
 			char	*argv[] = {
 				const_cast<char *>(this->_cgi.c_str()),
-				const_cast<char *>(ftGetScriptFilename(this->_path).c_str()),
+				const_cast<char *>(filename.c_str()),
 				NULL
 			};
 			execve(this->_cgi.c_str(), argv, this->_envp);

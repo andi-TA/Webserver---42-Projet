@@ -19,7 +19,7 @@ INC			=	-I./interfaces \
 
 MAIN		=	main.cpp
 
-CXX			=	c++ -std=c++98 -Wall -Wextra -Werror
+CXX			=	c++ 
 
 all			:	$(NAME)
 

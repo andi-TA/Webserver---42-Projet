@@ -22,7 +22,7 @@ SRC			=	./src/WebServer.cpp \
 				./src/LocationConfig.cpp \
 				./src/PollFD.cpp \
 
-CXX			=	c++ -std=c++98 -Wall -Wextra -Werror
+CXX			=	c++ 
 
 DIR			=	obj/
 
